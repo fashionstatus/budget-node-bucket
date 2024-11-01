@@ -1,0 +1,19 @@
+runtime: nodejs
+api_version: 1
+#threadsafe: true
+handlers:
+ - url: /
+   static_files: dist/budget-angular/index.html
+   upload: dist/budget-angular/index.html
+ - url: /
+   static_dir: dist/budget-angular
+#skip_files:
+# -e2e/
+# -node_modules/
+# -src/
+# -coverage
+# -^(.*/)?\..*$
+# -^(.*/)?.*\.json$
+# -^(.*/)?.*\.md$
+# -^(.*/)?.*\.yaml$
+# -^LICENSE

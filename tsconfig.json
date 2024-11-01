@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "strict": true,
+        "baseUrl": "./",
+        "outDir": "./",
+        "removeComments": true,
+        "experimentalDecorators": true,
+	"esModuleInterop": true,
+        "target": "es6",
+        "emitDecoratorMetadata": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "types": [
+            "node",
+            "jest"
+        ],
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "exclude": ["node_modules","build","contract","findings","integration","log","scratch","arch",
+	".gcloudignore",".gitignore","*.png","*.txt","*.properties","*.bak","*.log"],
+    "include": [
+        "./src/**/*.ts",
+        "./declarations/*.ts"
+        
+    ]
+}

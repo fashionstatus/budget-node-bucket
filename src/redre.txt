@@ -1,0 +1,23 @@
+import express = require('express');
+
+const cors = require('cors');
+
+var originsWhitelist = [
+  'https://192.168.1.4:8000',    
+   'https://192.168.1.7','https://192.168.1.2','https://192.168.1.3','https://192.168.1.5','https://192.168.1.6',
+    'https://budget-client-407513.el.r.appspot.com'
+];
+
+app.all('*', function(req, res, next) { 
+        let origin :string = req.headers.origin !=undefined ? req.headers.origin : "" ;
+        if(originsWhitelist.indexOf(origin) >=0 ) { 
+	   res.header("Access-Control-Allow-Origin",origin);
+           console.log("CORS allowed "+origin);	
+	   console.log("CORS request body "+JSON.stringify(req.body));	
+        }
+        else { console.log("CORS not allowed "+origin);
+	 }
+        res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+	next();
+    });
+

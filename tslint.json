@@ -1,0 +1,20 @@
+{
+    "defaultSeverity": "error",
+    "only-arrow-functions":false,
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "trailing-comma": [ false ],
+        "no-console": false,
+        "no-shadowed-variable":false,
+        "only-arrow-functions":false,
+        "no-var-requires": false,
+        "variable-name":false,
+        "radix": false,
+        "no-unused-expression": false,
+        "triple-equals":false
+    },
+    "rulesDirectory": []
+}

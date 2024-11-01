@@ -1,0 +1,81 @@
+const router = require('express').Router();
+let User = require('../models/user.model')
+
+
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+const validateEmail2 = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/
+    );
+};
+
+
+router.route('/').get((req,res) => {
+  User.find()
+     .then(users => res.json(users))
+     .catch(err => res.status(400).json('Error: '+err));
+});
+
+router.route('/:email').get((req,res) => {
+   const e = validateEmail (req.params.email) || validateEmail2(req.params.email) ;
+   if (e == undefined || e == "") {
+      	res.status(400).json('Error: INVALID '+req.params.email)	
+    } 
+   else {  
+	console.log("e " + e);
+	var stipCaret = req.params.email.substring(0,req.params.email.indexOf("@"));
+	 var query ={}; query.email = stipCaret ;
+		console.log("query " + JSON.stringify(query));
+     /*User.find({} , { projection: { id: 0, username: 0, email: { $ifNull: [ "$email", null ] },
+		 password:{ $ifNull: [ "$password", null ] }, role:{ $ifNull: [ "$role", null ] } , 
+		 confirmed: { $ifNull: [ "$confirmed", null ] }, 
+		created: { $ifNull: [ "$created", null ] }  
+			 }})
+,{ username: true, email: true , password: true, role: true, confirmed: true, _id: false }
+	*/
+	
+	User.find(query , { username: true, email: { $ifNull: [ "$email", null ] } ,
+			 password: { $ifNull: [ "$password", null ] }, 
+			 role: { $ifNull: [ "$role", null ] }, 
+			confirmed: { $ifNull: [ "$confirmed", null ] },
+			created: { $ifNull: [ "$created", null ] } ,
+			 _id: false })
+     .then(users =>      { 
+			 
+            res.json(users)
+	 }
+        )
+     .catch(err => res.status(400).json('Error: '+err));	
+		
+    }
+  // const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    
+   
+ 
+});
+
+router.route('/add').post((req,res) => {
+  const username = req.body.username;
+  const email = req.body.username;
+const password= req.body.password;
+const role = req.body.role;
+const confirmed = req.body.confirmed;
+const createdWith = req.body.createdWith;
+const id= req.body.id;
+
+  const newUser = new User({username , id , email, password, role, confirmed, createdWith})
+  newUser.save()
+   .then(() => res.json('User added !'))
+   .catch(err => res.status(400).json('Error: '+err))
+
+})
+module.exports = router;

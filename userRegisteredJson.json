@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": "7",
+      "accountId": "1",
+      "email": "anvekar.v.anandi@gmail.com",
+      "role": "OWNER",
+      "confirmed": "true",
+      "externalId": {
+        "google": "116215353782290208356"
+      },
+      "createdWith": "password"
+    },
+    {
+      "id": "1",
+      "email": "admin@app.com",
+      "password": "$2y$10$k.58cTqd/rRbAOc8zc3nCupCC6QkfamoSoO2Hxq6HVs0iXe7uvS3e",
+      "role": "ADMIN",
+      "confirmed": "true",
+      "createdWith": "password"
+    },
+    {
+      "id": "2",
+      "accountId": "1",
+      "email": "bartosz@app.com",
+      "password": "$2y$10$k.58cTqd/rRbAOc8zc3nCupCC6QkfamoSoO2Hxq6HVs0iXe7uvS3e",
+      "role": "OWNER",
+      "confirmed": "true",
+      "createdWith": "password",
+      "tfa": "true",
+      "tfaSecret": "FB2S2HQLIE2UIZQDGYLCMS3SNZMXQDSK"
+    },
+    {
+      "id": "3",
+      "accountId": "2",
+      "email": "john@app.com",
+      "password": "$2y$10$k.58cTqd/rRbAOc8zc3nCupCC6QkfamoSoO2Hxq6HVs0iXe7uvS3e",
+      "role": "OWNER",
+      "confirmed": "true",
+      "createdWith": "password"
+    },
+    {
+      "id": "4",
+      "accountId": "2",
+      "email": "mike@app.com",
+      "password": "$2y$10$k.58cTqd/rRbAOc8zc3nCupCC6QkfamoSoO2Hxq6HVs0iXe7uvS3e",
+      "role": "READER",
+      "confirmed": "true",
+      "createdWith": "password"
+    },
+    {
+      "id": "5",
+      "accountId": "1",
+      "email": "hi@bartosz.io",
+      "role": "OWNER",
+      "confirmed": "true",
+      "externalId": {
+        "github": "8076187"
+      },
+      "createdWith": "github"
+    },
+    {
+      "id": "6",
+      "accountId": "1",
+      "email": "vickyscab24@gmail.com",
+      "role": "OWNER",
+      "confirmed": "true",
+      "externalId": {
+        "google": "111013284878009413865"
+      },
+      "createdWith": "password"
+    },
+    {
+      "id": "8",
+      "accountId": "1",
+      "email": "fairvinay@gmail.com",
+      "role": "OWNER",
+      "password": "$2a$10$cybQQz2tlSQm5fpn8dyv8ebDxaN/PCrHwt6hIH2nbkNrr2aQuWM9q",
+      "confirmed": "true",
+      "externalId": {
+        "google": "108114016982917227438"
+      },
+      "createdWith": "password"
+    }
+  ]
+}

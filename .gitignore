@@ -1,0 +1,9 @@
+/node_modules
+/log/*
+/src/config/secret.ts
+/coverage
+/.scannerwork
+test-report.xml
+.dccache
+setLocal*
+indexokdec16*

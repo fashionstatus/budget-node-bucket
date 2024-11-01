@@ -1,0 +1,6 @@
+Google Authenticator URS 
+
+
+
+https://accounts.google.com/o/oauth2/v2/auth?client_id=<place `clientID` here>&response_type=code&state=gXPeee1Ekbzp9fTt9gVcLY886Tu3ANIo&scope=openid email profile&redirect_uri=http://localhost:8080/api/auth/external/google/callback/login
+
